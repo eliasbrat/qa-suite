@@ -36,5 +36,8 @@ services:
     image: httpd:alpine
     volumes:
       - ../tests:/usr/local/apache2/htdocs/tests
+    labels:
+      - io.docksal.virtual-host=${VIRTUAL_HOST}
+      - io.docksal.project-root=${PWD}
     environment:
-      - VIRTUAL_HOST=${DOCKSAL_VIRTUAL_HOST}
+      - VIRTUAL_HOST=${VIRTUAL_HOST}
